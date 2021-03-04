@@ -20,7 +20,6 @@ class Story:
 
     def __init__(self, words, text):
         """Create story with words and template text."""
-
         self.prompts = words
         self.template = text
 
@@ -50,3 +49,8 @@ excited_story = Story(
     ["noun", "verb"],
     """OMG!! OMG!! I love to {verb} a {noun}!"""
 )
+
+story_dict = {
+    "silly_story": silly_story,
+    "excited_story": excited_story
+}

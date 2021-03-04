@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Madlibs! {% endblock %}
+
+{% block content %}
+<form action="/results">
+    <select name="story" id="story-select" onchange="this.form.submit()">
+        <option value="">--Please choose an option--</option>
+        {% for story in story_options %}
+        <option value="{{story}}">{{story}}</option>
+        {% endfor %}
+    </select>
+</form>
+
+{% endblock %}
