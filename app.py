@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from flask_debugtoolbar import DebugToolbarExtension
 
-from stories import story_dict
+from stories import stories
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
@@ -13,19 +13,21 @@ debug = DebugToolbarExtension(app)
 def index():
     """ Return Dropdown with story options """
 
-    return render_template("dropdown.html", story_options=story_dict.keys())
+    return render_template("dropdown.html", story_options=stories.keys())
 
 
 @app.route('/results')
 def story_form():
-    """Return MadLibs Homepage"""
+    """Return MadLibs Questions"""
 
-    story_name = request.args["story"]
-    return render_template("questions.html", words=story_dict[story_name].prompts, story_name=story_name)
+    session["story"] = request.args["story"]
+    print(session["story"])
+    return render_template("questions.html", words=stories[session["story"]].prompts, story_name=session["story"])
 
 
-# @app.route('/results', methods=["POST"])
-# def results():
-#     """Return MadLibs results"""
+@app.route('/results', methods=["POST"])
+def results():
+    """Return MadLibs Results"""
 
-#     return render_template("story.html", story=silly_story.generate(request.form))
+    story_for_generation = stories[session["story"]]
+    return render_template("story.html", story=story_for_generation.generate(request.form))

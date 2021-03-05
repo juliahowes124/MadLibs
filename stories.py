@@ -50,7 +50,7 @@ excited_story = Story(
     """OMG!! OMG!! I love to {verb} a {noun}!"""
 )
 
-story_dict = {
+stories = {
     "silly_story": silly_story,
     "excited_story": excited_story
 }
