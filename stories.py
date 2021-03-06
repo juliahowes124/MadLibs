@@ -27,7 +27,7 @@ class Story:
         """Substitute answers into text."""
 
         text = self.template
-
+        print(text)
         for (key, val) in answers.items():
             text = text.replace("{" + key + "}", val)
 
@@ -51,6 +51,6 @@ excited_story = Story(
 )
 
 stories = {
-    "silly_story": silly_story,
-    "excited_story": excited_story
+    "Silly Story": silly_story,
+    "Excited Story": excited_story
 }
