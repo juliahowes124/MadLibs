@@ -2,15 +2,19 @@
 
 {% block title %} Madlibs! {% endblock %}
 
+{% block header %} Madlibs! {% endblock %}
 {% block content %}
-<form action="/results">
+<form action="/results" class="my-2">
     <select name="story" id="story-select" onchange="this.form.submit()">
-        <option value="">--Please choose an option--</option>
+        <option value=""> -- Choose a Story -- </option>
         {% for story in story_options %}
         <option value="{{story}}">{{story}}</option>
         {% endfor %}
     </select>
 </form>
-<a href="/create">Create a Template</a>
+<p class="text-center">OR</p>
+<div class="text-center pb-2">
+    <a class="btn btn-primary" href="/create">Create a Template</a>
+</div>
 
 {% endblock %}

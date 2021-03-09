@@ -4,14 +4,14 @@
 
 {% block content %}
   <h1 class="pt-4 mb-3 text-center">Create a Story!</h1>
-  <form action="/create" class="pb-4" method="POST">
-    <input name="story_name" placeholder="Story Name" class="my-3">
+  <form action="/create" class="pb-4 text-center" method="POST">
+    <input name="story_name" placeholder="Story Name" class="my-3 text-center">
     <input
             name="text_1"
             aria-label="text_1"
-            class="form-control my-3" placeholder="Text blob 1">
+            class="form-control my-3" placeholder="Text 1">
         <select name="word_type_1" id="word_1">
-            <option value="">Word Type</option>
+            <option value=""> --Word Type-- </option>
             <option value="noun">Noun</option>
             <option value="verb">Verb</option>
             <option value="adjective">Adjective</option>
@@ -19,9 +19,9 @@
           <input
               name="text_2"
               aria-label="text_2"
-              class="form-control my-3" placeholder="Text blob 2">
+              class="form-control my-3" placeholder="Text 2">
         <select name="word_type_2" id="word_2">
-            <option value="">Word Type</option>
+            <option value=""> --Word Type-- </option>
             <option value="noun">Noun</option>
             <option value="verb">Verb</option>
             <option value="adjective">Adjective</option>
