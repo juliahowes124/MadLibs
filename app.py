@@ -8,37 +8,40 @@ app.config['SECRET_KEY'] = "secret"
 
 # debug = DebugToolbarExtension(app)
 
-
 @app.route('/')
 def index():
-    """ Return Dropdown with story options """
+    """ Render Dropdown with story options """
+
     return render_template("dropdown.html", story_options=stories.keys())
 
 
 @app.route('/results')
 def story_form():
-    """Return MadLibs Questions"""
+    """ Render MadLibs Questions """
+
     session["story"] = request.args["story"]
-    print(session["story"])
     return render_template("questions.html", words=stories[session["story"]].prompts, story_name=session["story"])
 
 
 @app.route('/results', methods=["POST"])
 def results():
-    """Return MadLibs Results"""
+    """ Render MadLibs Generated Story """
+
     story_for_generation = stories[session["story"]]
     return render_template("story.html", story=story_for_generation.generate(request.form))
 
 
 @app.route('/create')
 def show_template_form():
-    """Displays form for creating a new story template"""
+    """ Displays form for creating a new story template """
+    
     return render_template("create_story_template.html")
 
 
 @app.route('/create', methods=["POST"])
 def create_template():
-    """Creates a new story from form data and adds to stories"""
+    """ Creates a new story template and adds to dictionary of stories """
+
     story_name = request.form["story_name"]
     word1 = request.form["word_type_1"]
     word2 = request.form["word_type_2"]

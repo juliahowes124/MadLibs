@@ -19,31 +19,26 @@ class Story:
     """
 
     def __init__(self, words, text):
-        """Create story with words and template text."""
+        """ Create story with words and template text. """
         self.prompts = words
         self.template = text
 
     def generate(self, answers):
-        """Substitute answers into text."""
+        """ Substitute answers into text. """
 
         text = self.template
-        print(text)
         for (key, val) in answers.items():
             text = text.replace("{" + key + "}", val)
 
         return text
 
 
-# Here's a story to get you started
-
+# Here are some stories
 silly_story = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time, in a long-ago {place}, there lived an exceptionally
        {adjective} {noun}. It loved to {verb} with {plural_noun}."""
 )
-
-# Here's another --- you should be able to swap in app.py to use this story,
-# and everything should still work
 
 excited_story = Story(
     ["noun", "verb"],
