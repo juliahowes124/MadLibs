@@ -1,6 +1,10 @@
 # Madlibs
 [Rithm School](https://www.rithmschool.com/) Project
 
+## Individual Contributions
+- Form functionality and interaction with Story class
+- Allowing users to create and select stories
+
 ## Tools
 
 Python / Flask / Jinja
